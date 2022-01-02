@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/bootstrap/css/customnavbar.css">
+    
+    <link rel="stylesheet" href="/static/bootstrap/js2/fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
+		
+		<!-- STYLE CSS -->
+	<link rel="stylesheet" href="/static/bootstrap/js2/css/style.css">
+    
+    
+    <title>Document</title>
+</head>
+<body style="background-image: url('/static/images/Data/Backgrounds/3.jpeg');   background-size: 100% 100%; ">
+   
+  <nav class="navbar navbar-expand-lg fixed-top navbar-dark  static-top background">
+    <div class="container">
+        <a class="navbar-brand" href="#">
+            <img src="/static/images/comsats.png" alt="..." height=50px>
+          </a>
+      <a class="navbar-brand" href="{% url 'home' %}"> <h2>Project</h2> </a>
+
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto">
+            
+          <li class="nav-item px-1">
+            <a class="nav-link active btn btn-block  " aria-current="page" href="{% url 'home' %}">Home</a>
+          </li>
+          
+          <li class="nav-item px-1">
+            <a class="nav-link active btn btn-block  " aria-current="page" href="{% url 'USER_LOGOUT' %}">LogOut</a>
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="p-5"></div>
+  <table class="table" style="color: white;">
+    <h3 style="color: white; text-align: center;" >Data for signup </h3>
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">No</th>
+        <th scope="col">First Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">USer Name</th>
+        <th scope="col">Number</th>
+        <th scope="col">Gmail</th>
+
+        <th scope="col">Password</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for i in signup %}
+      <tr>
+        <th scope="row">{{ forloop.counter }}</th>
+        <td>  {{i.firstname}} </td>
+        <td> {{i.lastname}} </td>
+        <td> {{i.name}} </td>
+        <td> {{i.number}} </td>
+        <td> {{i.mail}} </td>
+        <td> {{i.password1}} </td>
+    
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+      
+
+  <table class="table" style="color: white;">
+    <h3 style="color: white; text-align: center;" >Data for signin </h3>
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">No</th>
+        <th scope="col">USer Name</th>
+
+        <th scope="col">Password</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for i in signin %}
+      <tr>
+        <th scope="row">{{ forloop.counter }}</th>
+        <td> {{i.name}} </td>
+        <td> {{i.password1}} </td>
+    
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+    <!-- <div>
+        <h6>Data for signup</h6>
+        {% if signup %}
+            {% for i in signup %}
+                {{i.firstname}}
+                {{i.lastname}}
+                {{i.name}}
+                {{i.number}}
+                {{i.mail}}
+                {{i.password1}}
+            {% endfor %}
+        {% endif %}
+    
+    </div> -->
+      <script src="/static/bootstrap/js/bootstrap.bundle.min.js"></script>
+      
+
+</body>
+</html>
